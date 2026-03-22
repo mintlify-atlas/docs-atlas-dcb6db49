@@ -1,0 +1,74 @@
+{
+  "projectType": "frontend",
+  "projectName": "LinkedIn Profile Analyzer",
+  "projectDescription": "A Chrome extension that turns LinkedIn profiles and company pages into actionable intelligence using AI-powered analysis, warm path discovery, and exportable reports.",
+  "theme": "almond",
+  "primaryColor": "#94cb04",
+  "lightColor": "#545454",
+  "darkColor": null,
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": ["introduction", "installation", "configuration"]
+          },
+          {
+            "group": "Usage",
+            "pages": [
+              "usage/profile-analysis",
+              "usage/intel-map",
+              "usage/saved-reports",
+              "usage/exporting"
+            ]
+          },
+          {
+            "group": "Architecture",
+            "pages": [
+              "architecture/overview",
+              "architecture/background-worker",
+              "architecture/content-scripts",
+              "architecture/storage"
+            ]
+          },
+          {
+            "group": "Reference",
+            "pages": [
+              "reference/ai-providers",
+              "reference/permissions",
+              "reference/scraping"
+            ]
+          },
+          {
+            "group": "Contributing",
+            "pages": ["contributing/development", "contributing/faq"]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "AI-powered LinkedIn profile analysis tailored to specific goals (sales, hiring, fundraising, partnerships)",
+    "Deep profile scraping with auto-scroll for experience, education, skills, and recommendations",
+    "Company page enrichment for up to 2 employers with industry, size, and description context",
+    "Recent posts scraping for personalized ice breakers and conversation starters",
+    "Mutual connections discovery and cross-referencing with previously analyzed profiles",
+    "Warm path discovery via company overlaps, bridges, and introduction chains",
+    "Intel Map for company pages — scans employees, ranks them by relevance, and generates an engagement plan",
+    "Multi-provider AI support: OpenAI, Anthropic, and Google Gemini",
+    "Auto-save of all analyses to local storage with a browsable Saved Reports library",
+    "Markdown export (individual reports or bulk download of entire library)"
+  ],
+  "publicApiSurface": [
+    "chrome.runtime.sendMessage({ type: 'startAnalysis', tabId, projectDescription })",
+    "chrome.runtime.sendMessage({ type: 'getJobStatus' })",
+    "chrome.runtime.sendMessage({ type: 'clearJob' })",
+    "chrome.runtime.sendMessage({ type: 'startIntelMap', tabId, companyUrl, goal })",
+    "chrome.runtime.sendMessage({ type: 'getIntelJobStatus' })",
+    "chrome.runtime.sendMessage({ type: 'clearIntelJob' })",
+    "chrome.storage.sync: { provider, model, apiKeys }",
+    "chrome.storage.local: { analysisJob, intelMapJob, savedReports }"
+  ]
+}
